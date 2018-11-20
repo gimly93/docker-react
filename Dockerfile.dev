@@ -1,0 +1,11 @@
+#use existing docker image
+FROM node:alpine
+
+WORKDIR /app
+#DOWNLOAD AND INSTALL DEPENDENCY
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+#tell the image what to do when it starts as a containe
+CMD ["npm", "start"]
